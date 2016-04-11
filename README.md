@@ -3,7 +3,7 @@
 
 ## asyncDHT
 
-基于异步的DHT爬虫相关的一些脚本
+文章 **[【DHT爬虫：18.4GB种子分析小记】](http://www.freebuf.com/articles/database/101110.html)** 相关的一些脚本
 
 ## lagou.com
 
