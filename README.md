@@ -6,7 +6,7 @@
 文章 **[【DHT爬虫：18.4GB种子分析小记】](http://www.freebuf.com/articles/database/101110.html)** 相关的一些脚本
 
 
-## telnetWIFI
+## telnet_wifi
 
 文章 **[【技术分享：如何扫描统计全国Telnet默认口令】](http://www.freebuf.com/articles/terminal/93851.html)** 相关的一些脚本
 
