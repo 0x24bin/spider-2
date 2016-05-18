@@ -1,9 +1,9 @@
 
-# 异步+多代理爬出Demo
+# 异步+多代理Demo
 
 ## async_spider.py
 
-抓取Freebuf.COM的演示脚本，为了减少代码量，很多都硬编码了。
+采集Freebuf.COM文章的脚本，为了减少代码量，很多都硬编码了。
 
 ## init.sql
 
