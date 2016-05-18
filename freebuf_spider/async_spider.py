@@ -8,6 +8,7 @@ import aiohttp
 import aiomysql
 from bs4 import BeautifulSoup
 
+
 TIMEOUT  = 60
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 BAK_PATH = '{}/bak'.format(DIR_PATH)
@@ -18,9 +19,9 @@ logging.basicConfig(
    ,filemode = 'w'
    ,level    = logging.DEBUG
    ,format   = '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
-logger = logging.getLogger(__name__)
 
-loop = asyncio.get_event_loop()
+logger = logging.getLogger(__name__)
+loop   = asyncio.get_event_loop()
 
 
 class Crawler:
@@ -141,15 +142,20 @@ class Crawler:
             
         head     = arct.find(class_='title')
         title    = head.find('h2').get_text().strip()               # 文章标题
-        name     = head.find(class_='name').get_text().strip()      # 作者名称
-        rtime    = head.find(class_='time').get_text().strip()      # 发布时间
-        rmb      = 1 if head.find(title='现金奖励') else 0           
-        coin     = 1 if head.find(title='金币奖励') else 0
-        identity = 1 if head.find(title='认证作者') else 0
-        identity = 2 if not identity and head.find(title='认证厂商') else identity
-        tags     = head.find(class_='tags').find_all('a')
-        tags     = ','.join([t.get_text().strip() for t in tags])   # 所属分类
         content  = str(arct.find(id='contenttxt')).strip()          # 主题内容，HTLM格式
+        
+        # 公告页之类的没有发布者
+        if soup.find(class_='property'):
+            name     = head.find(class_='name').get_text().strip()      # 作者名称
+            rtime    = head.find(class_='time').get_text().strip()      # 发布时间
+            rmb      = 1 if head.find(title='现金奖励') else 0           
+            coin     = 1 if head.find(title='金币奖励') else 0
+            identity = 1 if head.find(title='认证作者') else 0
+            identity = 2 if not identity and head.find(title='认证厂商') else identity
+            tags     = head.find(class_='tags').find_all('a')
+            tags     = ','.join([t.get_text().strip() for t in tags])   # 所属分类
+        else:
+            name, rtime, rmb, coin, identity, tags = '', '1970-01-01', 0, 0, 0, '' 
         
         # 写入数据库
         sql = ('Insert Into posts (pid, title, name, rtime, rmb, coin, identity,'
@@ -186,7 +192,7 @@ class Crawler:
         
         # 代理较少时，限制访问频率，无代理则堵塞等待
         if len(res) < MIN_PROXY_SIZE:
-            await asyncio.sleep(20)
+            await asyncio.sleep(10)
                     
         for r in res:
             await self.pxy_queue.put(r)
