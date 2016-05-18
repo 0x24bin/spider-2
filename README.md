@@ -1,5 +1,10 @@
 
-# 放一些爬虫类的脚本/程序
+# 放一些爬虫类的脚本/资料
+
+## freebuf_spider
+
+文章 **[【Web爬虫：多线程、异步与动态代理初步 】](http://www.freebuf.com/articles/web/104732.html)** 相关的一些脚本
+
 
 ## asyncDHT
 
@@ -10,17 +15,7 @@
 
 文章 **[【技术分享：如何扫描统计全国Telnet默认口令】](http://www.freebuf.com/articles/terminal/93851.html)** 相关的一些脚本
 
+
 ## lagou.com
 
-#### 拉勾网职位薪资平均图
-
-813023 条有效信息，按首页分类进行统计
-
-[演示地址： http://zrools.github.io/spider/lagou.com/index.html](http://zrools.github.io/spider/lagou.com/index.html)
-
-
-#### 某些职位作了关键词权重统计
-
-去掉中文 TOP50
-
-[演示地址： http://zrools.github.io/spider/lagou.com/index.html](http://zrools.github.io/spider/lagou.com/weight.html)
+爬取拉勾网招聘职位，按首页分类平均薪资统计，职位权重关键字TOP50。
