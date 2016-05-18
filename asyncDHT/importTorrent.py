@@ -22,8 +22,9 @@ def get_extend(name):
 
 
 def escape_string(name):
-    name = aiomysql.escape_string(name)
-    return '' if name is None else name
+    if name=='' or name is None:
+        return ''
+    return aiomysql.escape_string(name)
 
 
 async def create_pool():
