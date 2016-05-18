@@ -142,7 +142,7 @@ class Crawler:
             
         head     = arct.find(class_='title')
         title    = head.find('h2').get_text().strip()               # 文章标题
-        content  = str(arct.find(id='contenttxt')).strip()          # 主题内容，HTLM格式
+        content  = str(arct.find(id='contenttxt')).strip()          # 主题内容，HTML格式
         
         # 公告页之类的没有发布者
         if soup.find(class_='property'):
