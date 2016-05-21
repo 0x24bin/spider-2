@@ -36,13 +36,5 @@ python3 /xxx/telnet_wifi.py
 
 数据表结构，需要位置信息等字段自行加入
 
-## 附件
-
-14+W条记录密码的TOP100、TOP500、TOP1000，跑WIFI包不错的弱口令字典
-
-- password_top100.txt
-- password_top500.txt
-- password_top1000.txt
-
 
 > 注：仅供学习交流，使用造成后果与我无关。
